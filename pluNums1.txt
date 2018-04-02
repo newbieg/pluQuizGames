@@ -74,7 +74,7 @@
 	('Yellow Onions',4665),
 	'Sweet CA Onion (orange-skinned)',4165
 	'Sweet Onion',4166
-
+	'Shallots', 4662
 	('Sweet Potatoes',4091),
 	('Russet Potatoes',4072),
 #	('5 lb bag White Potatoes',4728),
@@ -114,7 +114,7 @@
 	('Saturn Peaches',3113),
 	('Apricots',4218),
 	('Pluots',4444),
-	('Strawberries (1 lb package)',4253),
+#	('Strawberries (1 lb package)',4253),
 #	('Red Globe Grapes',4273),
 	('Red Seeded Grapes',4636),
 	('Cilantro',4889),
