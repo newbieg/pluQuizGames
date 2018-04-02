@@ -6,6 +6,7 @@
 using namespace std;
 
 void handleWrongAnswer(string answer, string list[], int &index, int & hintsize, plu data);
+string getRank(double value);
 
 
 int main()
@@ -48,6 +49,8 @@ int main()
 		}
 	}
 	cout <<"\nYou got a score of: " << (score * 100) << "%\n";
+	string rank = getRank(score);
+
 	return 0;
 }
 
@@ -78,4 +81,51 @@ void handleWrongAnswer(string answer, string list[], int &index, int & hintsize,
 		cout << "\nSorry, next product.\n";
 	}
 
+}
+
+
+
+
+
+
+
+string getRank(double value)
+{
+	if(value < -0.1)
+	{
+		"Comedian";
+	}
+	else if(value < 0.2)
+	{
+		return "Newbie";
+	}
+	else if(value < 0.3)
+	{
+		return "Novice";
+	}
+	else if(value < 0.4)
+	{
+		return "Rookie";
+	}
+	else if(value < 0.6)
+	{
+		return "Intermediate";
+	}
+	else if(value < 0.7)
+	{
+		return "Skillful";
+	}
+	else if(value < 0.8)
+	{
+		return "Pro";
+	}
+	else if(value < 0.9)
+	{
+		return "Expert";
+	}
+	else if(value < 1)
+	{
+		return "Legend";
+	}
+	
 }
