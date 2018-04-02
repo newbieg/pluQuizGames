@@ -56,7 +56,14 @@ void handleWrongAnswer(string answer, string list[], int &index, int & hintsize,
 	if(hintsize < 4)
 	{
 		int dontCare = 0;
-		cout << "Nope! That was "<< data.getProduct(data.getLinePLU(answer, dontCare)) << " try Again.\n Hint: ";
+		if(answer.length() > 3)
+		{
+			cout << "Nope! That was "<< data.getProduct(data.getLinePLU(answer, dontCare)) << " try Again.\n Hint: ";
+		}
+		else
+		{
+			cout << "Nope!\n Hint: ";
+		}
 		hintsize++;
 		for(int j = 0; j < hintsize; j ++)
 		{
