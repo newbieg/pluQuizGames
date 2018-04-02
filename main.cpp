@@ -5,6 +5,8 @@
 
 using namespace std;
 
+void handleWrongAnswer(string answer, string list[], int &index, int & hintsize, plu data);
+
 
 int main()
 {
@@ -41,28 +43,32 @@ int main()
 			}
 			else
 			{
-				if(hintsize < 4)
-				{
-					int dontCare = 0;
-					cout << "Nope! That was "<< bob.getProduct(bob.getLinePLU(answer, dontCare)) << " try Again.\n Hint: ";
-					hintsize++;
-					for(int j = 0; j < hintsize; j ++)
-					{
-						cout << plulist[i][j];
-					
-					}
-					cout << endl;
-					i --;
-				}
-				else 
-				{
-					hintsize = 0;
-					cout << "\nSorry, next product.\n";
-				}
-	
+				handleWrongAnswer(answer, plulist, i, hintsize, bob);	
 			}
 		}
 	}
 	cout <<"\nYou got a score of: " << (score * 100) << "%\n";
 	return 0;
+}
+
+void handleWrongAnswer(string answer, string list[], int &index, int & hintsize, plu data)
+{
+	if(hintsize < 4)
+	{
+		int dontCare = 0;
+		cout << "Nope! That was "<< data.getProduct(data.getLinePLU(answer, dontCare)) << " try Again.\n Hint: ";
+		hintsize++;
+		for(int j = 0; j < hintsize; j ++)
+		{
+			cout << list[index][j];
+		}
+		cout << endl;
+		index --;
+	}
+	else 
+	{
+		hintsize = 0;
+		cout << "\nSorry, next product.\n";
+	}
+
 }
