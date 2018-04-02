@@ -69,7 +69,7 @@
 #	('3 lb bag Granny Smith Apples',4198),
 #	('3 lb bag Gala Apples',4201),
 	('Red Onions',4082),
-	('Vidalia Onions',4159),
+#	('Vidalia Onions',4159),
 	('White Onions',4663),
 	('Yellow Onions',4665),
 	'Sweet CA Onion (orange-skinned)',4165
