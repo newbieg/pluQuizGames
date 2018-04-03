@@ -32,3 +32,6 @@
 *.app
 game
 buildQuiz
+
+# sub-quizes
+*.q

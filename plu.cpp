@@ -4,13 +4,17 @@ using namespace std;
 
 plu::plu()
 {
-	readFile("pluNums1.txt");
+
 }
+
 
 plu::plu(string filename)
 {
 	readFile(filename);
 }
+
+
+
 
 string plu::getLinePLU(string number, int & start)
 {
@@ -18,13 +22,32 @@ string plu::getLinePLU(string number, int & start)
 	{
 		if(book[i].find(number) != string::npos)
 		{
-			start = i;
+			start = i + 1;
 			return book[i];
 		}
-
 	}
+	start = -1;
 	return "Not found";
 }
+
+
+
+
+
+// Add a PLU string as you might see it in the 
+// accompanying text file 'pluNums1.txt'
+// 'Product Description',number
+void plu::addPLU(string PLUString)
+{
+	if(PLUString[0] != '#')
+	{
+		book.push_back(PLUString);
+	}
+}
+
+
+
+
 
 string plu::getLinePLU(int index)
 {
@@ -34,6 +57,11 @@ string plu::getLinePLU(int index)
 	}
 	return "Not found";
 }
+
+
+
+
+
 
 string plu::getProduct(int num)
 {
@@ -60,6 +88,11 @@ string plu::getProduct(int num)
 }
 
 
+
+
+
+
+
 string plu::getProduct(string fromLine)
 {
 	string temp = fromLine;
@@ -72,6 +105,11 @@ string plu::getProduct(string fromLine)
 	return temp.substr(start, size);
 	
 }
+
+
+
+
+
 
 string plu::getPLU(string product)
 {
@@ -102,7 +140,13 @@ string plu::getPLU(string product)
 
 }
 
-void plu::readFile(string fileName)
+
+
+
+
+
+
+bool plu::readFile(string fileName)
 {
 	ifstream inFile(fileName.c_str());
 	stringstream ss;
@@ -121,9 +165,16 @@ void plu::readFile(string fileName)
 	else
 	{
 		cout << "could not read file." << fileName << endl;
+		return false;
 	}
-	
+	return true;
 }
+
+
+
+
+
+
 
 void plu::printList()
 {
@@ -135,7 +186,18 @@ void plu::printList()
 }
 
 
+
+
+
+
+
 int plu::listSize()
 {
 	return book.size();
 }
+
+
+
+
+
+

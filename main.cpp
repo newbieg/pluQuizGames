@@ -13,7 +13,7 @@ int main()
 {
 	srand(time(NULL));
 
-	plu bob;
+	plu bob("pluNums1.txt");
 	int index = rand()%bob.listSize();
 
 
@@ -91,7 +91,7 @@ void handleWrongAnswer(string answer, string list[], int &index, int & hintsize,
 
 string getRank(double value)
 {
-	if(value < -0.1)
+	if(value <= 0.0)
 	{
 		"Comedian";
 	}
