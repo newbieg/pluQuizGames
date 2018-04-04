@@ -35,3 +35,9 @@ buildQuiz
 
 # sub-quizes
 *.q
+
+# Vim swp files
+*.swp
+
+
+

@@ -50,6 +50,7 @@ int main()
 	}
 	cout <<"\nYou got a score of: " << (score * 100) << "%\n";
 	string rank = getRank(score);
+	cout << "RANK: " << rank << endl;
 
 	return 0;
 }
@@ -93,35 +94,51 @@ string getRank(double value)
 {
 	if(value <= 0.0)
 	{
-		"Comedian";
+		return "Comedian";
+	}
+	else if(value < 0.10)
+	{
+		return "NPC";
 	}
 	else if(value < 0.2)
 	{
-		return "Newbie";
+		return "Slow Zombie";
 	}
 	else if(value < 0.3)
 	{
-		return "Novice";
+		return "Squirell Trainer";
+	}
+	else if(value < 0.35)
+	{
+		return "Goblin Zen Guru";
 	}
 	else if(value < 0.4)
 	{
-		return "Rookie";
+		return "Rookie Warrior";
 	}
 	else if(value < 0.6)
 	{
-		return "Intermediate";
+		return "Band Manager";
+	}
+	else if(value < .65)
+	{
+		return "Squire"
 	}
 	else if(value < 0.7)
 	{
-		return "Skillful";
+		return "Knight in Training";
 	}
 	else if(value < 0.8)
 	{
-		return "Pro";
+		return "Knight After";
 	}
 	else if(value < 0.9)
 	{
-		return "Expert";
+		return "Expert Swordsman";
+	}
+	else if(value < 0.95)
+	{
+		return "Wizard";
 	}
 	else if(value < 1)
 	{
