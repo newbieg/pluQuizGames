@@ -102,15 +102,15 @@ string getRank(double value)
 	}
 	else if(value < 0.2)
 	{
-		return "Zombie";
+		return "Slow Zombie";
 	}
 	else if(value < 0.3)
 	{
-		return "Small Goblin";
+		return "Squirell Trainer";
 	}
 	else if(value < 0.35)
 	{
-		return "Only Human";
+		return "Goblin Zen Guru";
 	}
 	else if(value < 0.4)
 	{
@@ -119,6 +119,10 @@ string getRank(double value)
 	else if(value < 0.6)
 	{
 		return "Band Manager";
+	}
+	else if(value < .65)
+	{
+		return "Squire"
 	}
 	else if(value < 0.7)
 	{
@@ -130,7 +134,7 @@ string getRank(double value)
 	}
 	else if(value < 0.9)
 	{
-		return "Expert Swardsman";
+		return "Expert Swordsman";
 	}
 	else if(value < 0.95)
 	{
