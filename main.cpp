@@ -114,15 +114,15 @@ string getRank(double value)
 	}
 	else if(value < 0.4)
 	{
-		return "Rookie Warrior";
+		return "Rookie Nose-Picker";
 	}
 	else if(value < 0.6)
 	{
-		return "Band Manager";
+		return "Squire";
 	}
 	else if(value < .65)
 	{
-		return "Squire"
+		return "Band Manager";
 	}
 	else if(value < 0.7)
 	{
