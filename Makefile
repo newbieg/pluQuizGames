@@ -9,6 +9,6 @@ buildQuiz.h:
 sdl_game.h: gui.h
 
 gui.h:
-	g++ -lSDL2 -ISDL2 sdl_game.cpp main.cpp
+	g++ -lSDL2 -lSDL2_image -ISDL2  sdl_game.cpp main.cpp
 
 
