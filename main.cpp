@@ -1,4 +1,4 @@
-#include "sdl_game.h"
+#include "gui_game.h"
 #include <iostream>
 
 
@@ -17,7 +17,7 @@ int main()
 		cout << "Could not init Video SDL\n";
 		return 0;
 	}
-	window = SDL_CreateWindow("Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREENW, SCREENH, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREENW, SCREENH, SDL_WINDOW_SHOWN|SDL_WINDOW_RESIZABLE);
 	if(window == NULL)
 	{
 		cout << "Could not init window with the settup\n";
@@ -28,15 +28,20 @@ int main()
 	SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0xff, 0xff, 0xff));
 
 	SDL_UpdateWindowSurface(window);
-	SDL_Delay(3000);
 
-
-	/*OK, so the window is created, now let's play the game.
-	 * We'll leave this to the sdl_game.h file to handle.*/
+	/* The window is created, now init PNG loading
+	 * */
+	int imgFlag = IMG_INIT_PNG;
+	if(!(IMG_Init(imgFlag) & imgFlag))
+	{
+		cout << "Could not init PNG loading\n";
+		return 0;
+	}
 
 	playGame(window, screen);
 
 
+	SDL_Delay(7000);
 	SDL_DestroyWindow(window);
 	SDL_Quit();
 	return 0;
