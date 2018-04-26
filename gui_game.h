@@ -8,6 +8,8 @@
 #include <vector>
 #include <string>
 
+#include "plu.h"
+
 // a non-sdl based class which handles paths to images for each animation.
 //
 class animation

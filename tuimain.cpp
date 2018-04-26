@@ -50,9 +50,9 @@ int main()
 		for(int i = 1; i <= PLUCOUNT; i ++)
 		{
 			cout << products[i] << ": ";
-			//cin >> answer; 
-			//if(answer == plulist[i])
-			if(hintsize == 0)
+			cin >> answer; 
+			if(answer == plulist[i])
+			//if(hintsize == 0)
 			{
 				cout << "correct!\n";
 				score += ((1.0/((double) PLUCOUNT)) - ((double)hintsize)/(4.0 *(double) PLUCOUNT))/4.0;
@@ -122,7 +122,7 @@ string getRank(double value)
 	}
 	else if(value < 0.3)
 	{
-		return "Squirell Trainer";
+		return "Squirell Tamer";
 	}
 	else if(value < 0.35)
 	{
@@ -130,15 +130,19 @@ string getRank(double value)
 	}
 	else if(value < 0.4)
 	{
-		return "Rookie Nose-Picker";
+		return "Rookie";
 	}
 	else if(value < 0.6)
 	{
 		return "Squire";
 	}
-	else if(value < .65)
+	else if(value < .63)
 	{
 		return "Band Manager";
+	}
+	else if(value < 0.67)
+	{
+		return "Barbarian Accountant";
 	}
 	else if(value < 0.7)
 	{

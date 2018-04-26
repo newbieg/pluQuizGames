@@ -50,7 +50,8 @@
 #	('6 oz Packaged Radishes',4744), 
 	('Eggplant',4081),
 	('Baby Eggplant',4599),
-	('Artichokes',4084),
+#	('Artichokes',4084), Our store only sells 'XL' artichokes, though they appear to be regular size...
+	('Artichokes XL',4762),
 	('Green Onions',4068),
 	('Leeks',4629),
 	('Fennel',4515),
@@ -146,7 +147,7 @@
 	('Kiwi',4030),
 	('Coconuts',4261),
 #	('Maradol Papayas',3112),
-	('Mangoes',4311),
+	('Mangoes',4051),
 	('Papayas',4394),
 #	('Boniato Batata',4546),
 	('Ginger',4612),
