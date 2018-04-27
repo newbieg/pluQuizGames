@@ -13,24 +13,32 @@
 #include "plu.h"
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 using namespace std;
 
-const int PLUCOUNT = 20;
+int PLUCOUNT = 5;
 const int QUIZLOOPS = 4;
 
 void handleWrongAnswer(string answer, string list[], int &index, int & hintsize, plu data);
 string getRank(double value);
 
 
-int main()
+void help(char* programName);
+
+void processTerminalInput(int argCount, char** args);
+
+
+
+int main(int argc, char **argv)
 {
 	
+	processTerminalInput(argc, argv);
+
 	srand(time(NULL));
 
 	plu bob("pluNums1.txt");
 	int index = rand()%bob.listSize();
-
 
 	string plulist[PLUCOUNT + 1];
 	string products[PLUCOUNT + 1];
@@ -52,7 +60,7 @@ int main()
 			cout << products[i] << ": ";
 			cin >> answer; 
 			if(answer == plulist[i])
-			//if(hintsize == 0)
+			//if(hintsize == 0) // pretend all answers are correct (Debug)
 			{
 				cout << "correct!\n";
 				score += ((1.0/((double) PLUCOUNT)) - ((double)hintsize)/(4.0 *(double) PLUCOUNT))/4.0;
@@ -70,6 +78,58 @@ int main()
 
 	return 0;
 }
+
+
+void help(char* programName)
+{
+	cout << "This program is made as a proof of concept.\nI used it myself to help memorize PLU codes to get better as a grocery checker.\nTo use this program, simply enter " << programName << " into your terminal and start playing the quiz.\n";
+	cout << "I have added difficulty settings, use -d 1-3 to set the dificulty as shown below:\n\t" << programName << " -d 3\nWhich would set it to maximum dificulty.\n\n";
+
+}
+
+
+
+void processTerminalInput(int argCount, char** args)
+{
+	// a loop is currently overkill here, 
+	// but I think there's likely to be more options 
+	// as tui is developed...
+	for(int i = 1; i < argCount; i ++)
+	{
+		if(!(strcmp(args[i], "-d")))
+		{
+			if(i+1 < argCount)
+			{
+				i ++;
+				if(!(strcmp(args[i], "2")))
+				{
+					PLUCOUNT = 10;		
+				}
+				if(!(strcmp(args[i], "3")))
+				{
+					PLUCOUNT = 20;		
+				}
+			}
+			else
+			{
+				help(args[0]);
+				exit(0);
+			}
+		}
+		else
+		{
+			help(args[0]);
+			exit(0);
+		}
+	}
+}
+
+
+
+
+
+
+
 
 void handleWrongAnswer(string answer, string list[], int &index, int & hintsize, plu data)
 {
@@ -160,7 +220,7 @@ string getRank(double value)
 	{
 		return "Wizard";
 	}
-	else if(value < 1)
+	else if(value <= 1.01)
 	{
 		return "Legend";
 	}
