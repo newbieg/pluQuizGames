@@ -1,7 +1,10 @@
 #include "gui_game.h"
 
+#define FPS 60
+
 const int BKGIMAGECOUNT = 3;
 const int ITEMCOUNT = 10;
+
 SDL_Surface* bkg[BKGIMAGECOUNT];
 SDL_Surface* items[ITEMCOUNT];
 SDL_Surface* screen;
@@ -17,6 +20,9 @@ void addItem();
 void cleanup();
 void clearBkg();
 
+void drawDelay(unsigned int frameTick); // modulate the FPS of the game, reduce cpu load.
+
+
 int playGame(SDL_Window * window, SDL_Surface * scr)
 {
 	screen = scr;
@@ -27,6 +33,27 @@ int playGame(SDL_Window * window, SDL_Surface * scr)
 	
 	cout << "Made it to the game...\n";
 
+	unsigned int tickData;
+
+	bool playing = true;
+	int count = 1000;
+	while(count > 0)
+	{
+		count --;
+		tickData = SDL_GetTicks();
+
+		// detect end of game...
+		playing = false;
+		/* We got some stuff to set up like double buffering,
+		 actuall key interface, 
+		 and item motion, as well as dettecting when an Item drops
+		 too far. 
+		 */
+
+
+
+		drawDelay(tickData); // leave here, it's the pause between frames...
+	}
 
 	cleanup();
 }
@@ -81,5 +108,12 @@ void clearBkg()
 
 
 
+void drawDelay(unsigned int frameTick)
+{
+	if((1000/FPS) > SDL_GetTicks() - frameTick)
+	{
+		SDL_Delay((1000 / FPS) - (SDL_GetTicks() - frameTick));
+	}
+}
 
 
